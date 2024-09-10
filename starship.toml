@@ -2,7 +2,42 @@ command_timeout = 2000
 
 add_newline = true
 
-format = '$username@$hostname$all'
+# format = '$username@$hostname$all'
+
+format = """
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$package\
+$deno\
+$dotnet\
+$nodejs\
+$perl\
+$python\
+$terraform\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$direnv\
+$env_var\
+$custom\
+$cmd_duration\
+$line_break\
+$jobs\
+$status\
+$os\
+$container\
+$shell\
+$directory\
+$character"""
+
 
 [time]
 format = '[$time]($style) '
@@ -23,12 +58,8 @@ tag_disabled = false
 commit_hash_length = 7
 disabled = false
 
-[memory_usage]
-format = 'using [$ram_pct RAM]($style) '
-disabled = false
-
 [package]
-disabled = true
+disabled = false
 
 [status]
 format = '[$status]($style) '
@@ -43,6 +74,6 @@ format = '[$user]($style)'
 disabled = false
 
 [hostname]
-show_always = true
+format='[$ssh_symbol$hostname]($style)'
 ssh_only = false
 disabled = false
